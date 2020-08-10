@@ -1,0 +1,38 @@
+get the lunch,breakfast,dinner menu item of monday
+
+>>> m= Menuoftheday.objects.filter(days=1).values('menuitem__name')
+<QuerySet [{'menuitem__name': 'poha'}, {'menuitem__name': 'idli'}, {'menuitem__name': 'bhaji poli'}]>
+
+get the lunch menu item of monday
+
+ m= Menuoftheday.objects.filter(days=1,mealtype__meal_type="B").values('menuitem__name')
+
+ for i in DAYS_OF_WEEK:...     Menuoftheday.objects.filter(days=i[0]).values('menuitem__name')
+
+
+B   2
+
+
+obj = Menuoftheday.objects.filter(days=1,mealtype__meal_type=B).first()
+obj.name = "poha"
+obj.save()
+B.item
+obj['day'] #1
+obj['B']['item'] #idli
+#use bulk_update
+
+[
+    {
+        "day":1,
+        "B":{
+                    "item":"idle,
+                    },
+        "L":{
+        "item":"idle,
+        }
+        "D":{
+        "item":"idle,
+        }
+    },
+    {}
+]

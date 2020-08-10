@@ -1,5 +1,3 @@
-
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,12 +27,12 @@ INSTALLED_APPS = [
     'accounts',
     'apps.menu',
     'apps.sample',
-  
-    
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
-    'imagekit'
+    'imagekit',
+    'address',  # this is error
+    'apps.menu_of_the_day'
 ]
 
 MIDDLEWARE = [
@@ -66,8 +64,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
-
 
 DATABASES = {
     'default': {
@@ -134,7 +130,7 @@ REST_FRAMEWORK = {
 
 REST_USE_JWT = True
 
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/snj/app_backend/version2/MessAPI/media'
+
+AUTHENTICATION_BACKENDS = (('django.contrib.auth.backends.ModelBackend'), )

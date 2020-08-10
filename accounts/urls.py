@@ -1,11 +1,11 @@
-from django.conf.urls import url, include
 from rest_framework import routers
-from accounts.views import UserViewSet
+from accounts.views import UserViewSet, VendorList
+from django.urls import path, include
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register('users', UserViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^auth/', include('rest_auth.urls')),
+    path('', include(router.urls)),
+    path('auth/', include('rest_auth.urls')),
 ]
