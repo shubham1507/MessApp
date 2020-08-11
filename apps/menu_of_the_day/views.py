@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework import generics
 
 from .models import MenuOfTheDay
 from .serializer import MenuOfTheDaySerializer
@@ -10,14 +11,22 @@ from .serializer import MenuOfTheDaySerializer
 
 class ListMenu(viewsets.ModelViewSet):
 
+    serializer_class = MenuOfTheDaySerializer
+
     b = MenuOfTheDay
 
     # queryset = [(MenuOfTheDay.objects.filter(days=i[0]).values('menu_name'))
     #             for i in b.DAYS_OF_WEEK]
 
-    queryset = MenuOfTheDay.objects.all()
+    # queryset = MenuOfTheDay.objects.all()
 
-    serializer_class = MenuOfTheDaySerializer
+    l = [i[0] for i in b.DAYS_OF_WEEK]
 
-    # def get_queryset(self):
-    #     return self.request.MenuOfTheDay.objects.all()
+    print(l)
+
+    queryset = MenuOfTheDay.objects.filter(days__in=l).values('menu_name')
+
+    def list(self, request):
+        return Response(self.queryset.values())
+
+    # print(queryset)

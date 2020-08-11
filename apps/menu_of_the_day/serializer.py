@@ -1,10 +1,24 @@
 from rest_framework import serializers
 
-from .models import MenuOfTheDay
+from .models import MenuOfTheDay, MealType
+
+# class MealTypeSerializer(serializers.ModelSerializer):
+#     class Meta:
+
+#         model = MealType
+
+#         fields = ('meal_type', )
 
 
 class MenuOfTheDaySerializer(serializers.ModelSerializer):
+
+    # meal_type = MealTypeSerializer(many=True, read_only=True)
+
     class Meta:
 
         model = MenuOfTheDay
-        fields = ('id', 'menu_name', 'days', 'meal_type')
+        fields = (
+            'menu_name',
+            'days',
+            'meal_type',
+        )
