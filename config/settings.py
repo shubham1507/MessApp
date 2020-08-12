@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'rest_auth',
     'imagekit',
     'address',  # this is error
-    'apps.menu_of_the_day'
+    'apps.menu_of_the_day',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [

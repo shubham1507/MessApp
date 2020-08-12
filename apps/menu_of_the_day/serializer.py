@@ -20,5 +20,6 @@ class MenuOfTheDaySerializer(serializers.ModelSerializer):
         fields = (
             'menu_name',
             'days',
+            'days_in_week',
             'meal_type',
         )

@@ -28,6 +28,10 @@ class MenuOfTheDay(models.Model):
                                        blank=True,
                                        null=True)
 
+    days_in_week = models.CharField(max_length=100,
+                                    default='Monday',
+                                    choices=DAYS_OF_WEEK)
+
     class Meta:
 
         constraints = [
