@@ -23,16 +23,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    # 'shell_plus',
     'phonenumber_field',
     'accounts',
-    'apps.menu',
-    'apps.sample',
+    # 'apps.menu',
+    # 'apps.sample',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     'imagekit',
     'address',  # this is error
     'apps.menu_of_the_day',
+    # 'apps.sample',
     'rest_framework_swagger',
 ]
 

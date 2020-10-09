@@ -12,6 +12,8 @@ get the lunch menu item of monday
 
 B   2
 
+m= MenuOfTheDay.objects.filter(days=1).values()
+
 
 obj = Menuoftheday.objects.filter(days=1,mealtype__meal_type=B).first()
 obj.name = "poha"
@@ -36,3 +38,36 @@ obj['B']['item'] #idli
     },
     {}
 ]
+
+
+----------------------------------------------------------
+1) Create B,L,D
+
+m = MenuOfTheDay(days=1,breakfast_item='idli',lunch_item='dosa',dinner_item='chatni-poli')
+
+1) get all the menu of week B,L,D
+
+MenuOfTheDay.objects.values()
+
+2)Update particular B,L or D  of a day
+
+ m=MenuOfTheDay.objects.filter(days=2).first()
+
+ m.breakfast_item = 'pizza'
+ m.lunch_item = 'cake'
+ m.dinner_item = 'burger'
+ m.save()
+
+3) Delete a particular menu of week B,L,D
+
+MenuOfTheDay.objects.filter(days=2).update(breakfast_item="")
+
+4)  Delete a particular menu of week B,L,D of all week days
+
+MenuOfTheDay.objects.update(breakfast_item="")
+
+
+
+
+
+ 
