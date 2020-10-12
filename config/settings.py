@@ -136,8 +136,23 @@ MEDIA_ROOT = '/home/snj/app_backend/version2/MessAPI/media'
 
 AUTHENTICATION_BACKENDS = (('django.contrib.auth.backends.ModelBackend'), )
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
+
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+DATABASES = {
+    'default':
+    dj_database_url.config(default=config(
+        'postgres://qmrasahotajohs:01f0e6691a9f1c12be166f5828deced540cba46ec10f0cbc0351c7e11b14803c@ec2-50-17-197-184.compute-1.amazonaws.com:5432/d8bl4tv866ui85'
+    ))
+}
