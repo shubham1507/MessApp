@@ -159,3 +159,25 @@ DATABASES = {
         'postgres://qmrasahotajohs:01f0e6691a9f1c12be166f5828deced540cba46ec10f0cbc0351c7e11b14803c@ec2-50-17-197-184.compute-1.amazonaws.com:5432/d8bl4tv866ui85'
     ))
 }
+
+###############
+
+import os
+from decouple import config
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': '',
+    }
+}
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',
+                       cast=lambda v: [s.strip() for s in v.split(',')])
