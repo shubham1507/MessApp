@@ -24,19 +24,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    # 'shell_plus',
     'phonenumber_field',
-    'accounts',
-    # 'apps.menu',
-    # 'apps.sample',
+    'apps.accounts',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     'imagekit',
     'address',  # this is error
     'apps.menu_of_the_day',
-    # 'apps.sample',
     'rest_framework_swagger',
+    'apps.service_and_subscription'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +135,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/snj/app_backend/version2/MessAPI/media'
 
 AUTHENTICATION_BACKENDS = (('django.contrib.auth.backends.ModelBackend'), )
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

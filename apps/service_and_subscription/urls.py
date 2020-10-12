@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.ServiceSubscribe, name='ServiceSubscribe'),
+    path('', views.ListMenu, name='listmenu'),
 ]

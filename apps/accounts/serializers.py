@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from accounts.models import User, Vendor, Customer
+from apps.accounts.models import User, Vendor, Customer
 
 
 class VendorSerializer(serializers.ModelSerializer):
@@ -124,3 +124,21 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             customer.save()
 
             return instance
+
+
+class VendorListingSeializer(serializers.ModelSerializer):
+    model = User
+    vendor = VendorSerializer(required=True)
+
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'first_name',
+            'last_name',
+            'phone',
+            'image',
+            'vendor',
+        )
+
+        extra_kwargs = {'password': {'write_only': True}}

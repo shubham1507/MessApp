@@ -55,9 +55,9 @@ class MenuOfTheDay(models.Model):
                                        blank=True,
                                        primary_key=True,
                                        default=7)
-    days_in_week = models.CharField(max_length=100,
-                                    default='Monday',
-                                    choices=DAYS_OF_WEEK)
+    # days_in_week = models.CharField(max_length=100,
+    #                                 default='Monday',
+    #                                 choices=DAYS_OF_WEEK)
 
     breakfast_item = models.CharField(max_length=20, blank=True, null=True)
     lunch_item = models.CharField(max_length=20, blank=True, null=True)
