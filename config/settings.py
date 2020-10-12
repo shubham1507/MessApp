@@ -148,6 +148,9 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+from decouple import config
+import dj_database_url
+
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 DATABASES = {
