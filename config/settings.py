@@ -151,11 +151,15 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 from decouple import config
 import dj_database_url
 
+# SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+# DATABASES = {
+#     'default':
+#     dj_database_url.config(default=config(
+#         'postgres://qmrasahotajohs:01f0e6691a9f1c12be166f5828deced540cba46ec10f0cbc0351c7e11b14803c@ec2-50-17-197-184.compute-1.amazonaws.com:5432/d8bl4tv866ui85'
+#     ))
+# }
+
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {
-    'default':
-    dj_database_url.config(default=config(
-        'postgres://qmrasahotajohs:01f0e6691a9f1c12be166f5828deced540cba46ec10f0cbc0351c7e11b14803c@ec2-50-17-197-184.compute-1.amazonaws.com:5432/d8bl4tv866ui85'
-    ))
-}
+DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
