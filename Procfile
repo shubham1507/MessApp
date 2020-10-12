@@ -1,1 +1,1 @@
-web: gunicorn messapp.wsgi --log-file -
+web: gunicorn MessApp.config.wsgi --log-file -
