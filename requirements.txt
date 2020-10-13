@@ -1,4 +1,5 @@
 Babel==2.8.0
+Brotli==1.0.9
 certifi==2020.6.20
 chardet==3.0.4
 coreapi==2.3.3
@@ -16,6 +17,7 @@ django-rest-swagger==2.2.0
 django-shell-plus==1.1.7
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
+gunicorn==20.0.4
 idna==2.10
 itypes==1.2.0
 Jinja2==2.11.2

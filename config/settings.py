@@ -12,7 +12,7 @@ SECRET_KEY = 'qiydre)o%ntm&bts=*2p^3&fl9pvt5%3=1mhx5db405r$#3wp%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'http://0.0.0.0:5000/']
 
 # Application definition
 
@@ -146,7 +146,9 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+from whitenoise import WhiteNoise
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 from decouple import config
 import dj_database_url
@@ -160,6 +162,6 @@ import dj_database_url
 #     ))
 # }
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
+# SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+# DATABASES = {'default': dj_database_url.config(default=config('DATABASE_URL'))}
