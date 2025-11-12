@@ -1,11 +1,11 @@
 Babel==2.8.0
-Brotli==1.0.9
+Brotli==1.2.0
 certifi==2020.6.20
 chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
 dj-database-url==0.5.0
-Django==2.2
+Django==4.2.26
 django-address==0.2.3
 django-appconf==1.0.4
 django-extensions==3.0.9
